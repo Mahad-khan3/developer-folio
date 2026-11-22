@@ -35,10 +35,10 @@
    back down, so 7 - 6.5 + 6 = 6.5vh + the 1% empty band on the image. */
 .h-photo-img { transform: translateY(6vh) scale(1.15); will-change: filter, opacity; backface-visibility: hidden; }
 
-/* heading — dark ink on the page background, weight 700 (800 read too heavy at 6vw) */
+/* heading — white on the photo, weight 700 (800 read too heavy at 6vw) */
 .h-heading {
   font-size: 6vw; line-height: 0.98; font-weight: 700; letter-spacing: -0.03em;
-  color: var(--ink); margin: 0;
+  color: #fff; margin: 0;
 }
 .h-side-text { font-size: 1vw; line-height: 1.35; font-weight: 500; margin: 0; }
 
@@ -454,9 +454,9 @@
   .h-photo-img { height: 68vh; transform: scale(1.1); }
   .h-side-text, .h-traits, .h-stat { display: none; }
 
-  /* JOHNSMITH drops from 10vh to 13vh so there is real padding above the word, and
+  /* ASAD SHEIKH drops from 10vh to 13vh so there is real padding above the word, and
      it now clears the top of the photo (32vh) instead of sitting on it */
-  .h-logo-fly { left: 4vw !important; top: 13vh !important; width: 92vw !important; }
+  .h-logo-fly { left: 0 !important; top: 13vh !important; width: 100vw !important; }
 
   .h-cta-row { left: 6vw !important; top: 87vh !important; }
   .h-btn { font-size: 3.6vw; padding: 3vw 5vw; }

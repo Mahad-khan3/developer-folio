@@ -273,7 +273,7 @@ function Card({ c }) {
               data-tl-to="{'yPercent': 0,  'duration': 0.4, 'stagger': 0.1, 'delay': 0.6, 'ease': 'expo.out'}"
               className="about-card-bottom-text"
             >
-              @johnsmith
+              @asadsheikh
               <br />
               2hours ago
             </p>

@@ -9,7 +9,7 @@
 
   /* the free area to the right of the fixed panel */
   --brand-inset: calc(var(--panel-w) + var(--panel-gap));
-/* "JOHNSMITH" runs about 3.7em wide in this face, so 1/4 of the free area keeps
+/* "ASAD SHEIKH" runs about 3.7em wide in this face, so 1/4 of the free area keeps
    the word noticeably narrower than the old full-bleed wordmark */
   --brand-size: clamp(48px, calc((100vw - var(--brand-inset) - var(--brand-gutter)) / 4), 280px);
 

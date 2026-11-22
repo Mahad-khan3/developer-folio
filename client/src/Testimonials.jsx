@@ -8,23 +8,23 @@ gsap.registerPlugin(ScrollTrigger);
 const TESTIMONIALS = [
   {
     title: ["Trusted", "long-term collaborator."],
-    body: "Johnsmith has been a fantastic partner to work with and continues to be an essential part of our team. He communicates clearly and promptly, and his work consistently exceeds expectations. He solves technical problems quickly and efficiently, always showing real skill, reliability, and a strong commitment to quality.",
+    body: "Asad Sheikh has been a fantastic partner to work with and continues to be an essential part of our team. He communicates clearly and promptly, and his work consistently exceeds expectations. He solves technical problems quickly and efficiently, always showing real skill, reliability, and a strong commitment to quality.",
   },
   {
     title: ["Thinks through", "the entire build."],
-    body: "Johnsmith doesn't just write code \u2014 he thinks through the whole product. Architecture, performance, and the user experience all line up with genuine technical excellence. The result is software that feels fast, complete, and intentional. A true partner in execution. No gaps, no compromises.",
+    body: "Asad Sheikh doesn't just write code \u2014 he thinks through the whole product. Architecture, performance, and the user experience all line up with genuine technical excellence. The result is software that feels fast, complete, and intentional. A true partner in execution. No gaps, no compromises.",
   },
   {
     title: ["Reliable, skilled,", "and easy to work with."],
-    body: "Johnsmith was great to work with! He delivered our web applications on schedule, gave our design team useful guidance, and suggested smarter solutions that clearly improved the final results. Super reliable and easy to collaborate with \u2014 highly recommend!",
+    body: "Asad Sheikh was great to work with! He delivered our web applications on schedule, gave our design team useful guidance, and suggested smarter solutions that clearly improved the final results. Super reliable and easy to collaborate with \u2014 highly recommend!",
   },
   {
     title: ["The details that", "set him apart."],
-    body: "I've worked with Johnsmith for a few years now, and he still surprises me with the speed and quality of his work. His attention to the small details, the ones most developers overlook, makes all the difference for a great product. He's reliable, fun to collaborate with, and consistently delivers beyond expectations. As long as he wants to work with us, we'll keep building together.",
+    body: "I've worked with Asad Sheikh for a few years now, and he still surprises me with the speed and quality of his work. His attention to the small details, the ones most developers overlook, makes all the difference for a great product. He's reliable, fun to collaborate with, and consistently delivers beyond expectations. As long as he wants to work with us, we'll keep building together.",
   },
   {
     title: ["Full-stack thinking,", "reliable delivery."],
-    body: "We've hired Johnsmith for several projects, and working with him has always been effortless thanks to his strong understanding of both design and development. He handles everything from the interface down to the backend, and he's dedicated to getting each delivery right for our clients.",
+    body: "We've hired Asad Sheikh for several projects, and working with him has always been effortless thanks to his strong understanding of both design and development. He handles everything from the interface down to the backend, and he's dedicated to getting each delivery right for our clients.",
   },
 ];
 

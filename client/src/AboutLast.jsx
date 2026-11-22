@@ -21,7 +21,7 @@ export default function AboutLast() {
         <div className="about-card-bottom-layout">
           <div className="about-card-bottom-layout-left">
             <p className="about-card-bottom-text">
-              @johnsmith
+              @asadsheikh
               <br />
               ready for the next build
             </p>

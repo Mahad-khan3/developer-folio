@@ -9,9 +9,9 @@ import "./hero.css";
 // npm i gsap   (Tailwind CSS must already be set up in your project)
 gsap.registerPlugin(ScrollTrigger);
 
-// hero photo removed — no image is rendered in the hero section
+const PHOTO = "/asad.png";
 
-const EMAIL = "johnsmith@gmail.com";
+const EMAIL = "aptechenglish52@gmail.com";
 const MAIL = EMAIL;
 const ROLES = ["Software Developer", "Web Developer"];
 
@@ -39,7 +39,7 @@ const SKILLS = [
   { mark: "⚡", label: "Problem Solving", accent: true },
 ];
 
-const WORD = "JOHNSMITH";
+const WORD = "ASAD SHEIKH";
 
 /* One <g><text> per letter. SVG <tspan>s can't take transform / clip-path, so
    the per-letter slide-in needs real elements. The hidden ".h-logo-measure"
@@ -103,7 +103,10 @@ const CopyIcon = ({ ok }) => (
   </svg>
 );
 
-export default function Hero() {
+export default function Hero({
+  photo = PHOTO,
+  photoMobile = PHOTO,
+}) {
   const root = useRef(null);
   const copyTimer = useRef(0);
   const [copied, setCopied] = useState(false);
@@ -149,7 +152,7 @@ export default function Hero() {
     const mobile = window.innerWidth < 768;
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-    /* place the 5 letters: natural advances from the ruler, scaled so the
+    /* place the letters: natural advances from the ruler, scaled so the
        word fills exactly 1288 units (same look as the old textLength word).
        Each Logo() svg carries its own hidden measure ruler, so every ruler lays
        out only the letters inside its own svg — the mobile chip is a second
@@ -317,9 +320,8 @@ export default function Hero() {
       const sp = (pctScroll) => pctScroll * D;
       const dur = (pctScroll) => pctScroll * D;
 
-      // photo blur + fade  (0 - 70%) — kept on the (now empty) wrapper so the
-      // timeline length and every other scroll position stay unchanged
-      tl.to(".h-photo", { filter: "blur(90px)", opacity: 0.3, duration: 0.7 }, 0)
+      // photo blur + fade  (0 - 70%)
+      tl.to(".h-photo-img", { filter: "blur(90px)", opacity: 0.3, duration: 0.7 }, 0)
         // hero-only texts slide up and are gone by 10% of the scroll — they
         // belong to the hero state only, the panel has its own copies
         .to(".h-side-text", { yPercent: -100, autoAlpha: 0, duration: dur(0.05) }, sp(0.05))
@@ -458,9 +460,9 @@ export default function Hero() {
          browser never paints the finished hero first. The ® and the whole left
          panel are deliberately not in here — they belong to the scroll. */
       /* x is in svg units here (the letters are <g> elements): 60vw of the
-         94vw-wide logo = (60 / 94) * 1288 units. The clip rects start at zero
-         height, so each glyph is cut off at the bottom and grows upward. */
-      gsap.set(".h-logo-letter", { autoAlpha: 1, x: (60 / 94) * 1288, scaleX: 0.55, transformOrigin: "0% 50%" });
+          full-width logo = (60 / 100) * 1288 units. The clip rects start at zero
+          height, so each glyph is cut off at the bottom and grows upward. */
+      gsap.set(".h-logo-letter", { autoAlpha: 1, x: (60 / 100) * 1288, scaleX: 0.55, transformOrigin: "0% 50%" });
       gsap.set(".h-logo-clip", { attr: { y: 0, height: 0 } });
       gsap.set(".h-logo-lift", { y: "15vh" });
       gsap.set(".h-photo", { autoAlpha: 0, filter: "blur(30px)", y: 60, scale: 1.05 });
@@ -605,13 +607,17 @@ export default function Hero() {
             x/y/scale that the scroll fly writes on [data-fly="logo"]. 4vh keeps
             the word clear of the viewport edge — it is ~44vh tall at this width,
             so it now ends right where the heading starts (50vh). */}
-        <div data-fly="logo" className="h-logo-fly absolute left-[2.5vw] top-[4vh] w-[94vw] z-[3]">
+        <div data-fly="logo" className="h-logo-fly absolute left-0 top-[4vh] w-full z-[3]">
           <div className="h-logo-lift"><Logo /></div>
         </div>
 
-        {/* hero photo removed (desktop + mobile) — wrapper kept empty so the
-            intro/scroll timelines keep their original timing */}
-        <div className="h-photo absolute inset-x-0 bottom-0 z-[4] flex justify-center" aria-hidden="true" />
+        {/* photo sits OVER the logo. 93vh + the .h-photo-img transform puts the
+            top of the head at ~7vh; the heading lives in .h-main at z-20, so
+            the photo (z-4) can never cover it */}
+        <div className="h-photo absolute inset-x-0 bottom-0 z-[4] flex justify-center">
+          <img src={photo} alt="Asad" className="h-photo-img hidden sm:block h-[93vh] w-auto max-w-none object-contain object-bottom" />
+          <img src={photoMobile} alt="Asad" className="h-photo-img block sm:hidden h-[93vh] w-auto max-w-none object-contain object-bottom" />
+        </div>
 
 {/* ===== LEFT PANEL (end state) — always in layout (opacity only)
              so every slot below can be measured while it is there.
@@ -628,7 +634,7 @@ export default function Hero() {
           {/* block 1 — logo chip (the flying logo lands here) + paragraph */}
           <div className="h-block relative p-[0.6vw]">
             <div className="flex items-start justify-between gap-[0.6vw]">
-              {/* the JOHNSMITH chip's slot. The flying logo is tweened to this
+              {/* the ASAD SHEIKH chip's slot. The flying logo is tweened to this
                   slot's WIDTH (fly("logo", ..., { fitWidthBox: true })), and its
                   height is then the svg's own 1288:338 ratio plus the pill's
                   fixed 6px 14px padding — the padding no longer scales, so the
@@ -737,7 +743,7 @@ export default function Hero() {
           <p className="h-stat-text">Years of<br />Experience</p>
         </div>
 
-        {/* under the "Your Web Expert. Johnsmith." line (88vh, one line = ~2.4vh), so the
+        {/* under the "Your Web Expert. Asad Sheikh." line (88vh, one line = ~2.4vh), so the
             row starts at 92vh and ends ~97.7vh. It stops at ~23vw, just short of
             the photo's visible left edge (~24.2vw). The Explore button is the one
             that flies into the panel's full-width CTA slot. */}
@@ -764,7 +770,7 @@ export default function Hero() {
           ))}
         </h1>
 
-        <p className="h-side-text h-in absolute left-[3.5vw] top-[88vh] w-[14vw]">Your Web Expert. Johnsmith.</p>
+        <p className="h-side-text h-in absolute left-[3.5vw] top-[88vh] w-[14vw]">Your Web Expert. Asad Sheikh.</p>
         <p className="h-side-text h-in absolute right-[0.5vw] top-[85vh] w-[20vw]">
 I&rsquo;m a Web &amp; Software Developer with 3+ years of experience building modern websites, web applications, e-commerce solutions, and software products.
         </p>
